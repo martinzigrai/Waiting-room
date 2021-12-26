@@ -1,0 +1,11 @@
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+
+class RegisterForm(Form):
+    name = StringField('Name', [validators.Length(min=1, max=50)])
+    username = StringField('Username', [validators.Length(min=1, max=25)])
+    email = StringField('Email', [validators.Length(min=1, max=50)])
+    password = PasswordField('Password', [
+        validators.data_required(),
+        validators.equal_to('confirm', message='Passwords do not match')
+    ])
+    confirm = PasswordField('Confirm Password')
