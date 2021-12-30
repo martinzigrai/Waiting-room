@@ -9,6 +9,7 @@
     <body>
         {% include 'includes/_navbar.jinja2' %}
         <div class="container">
+            {% include 'includes/_messages.jinja2' %}
             {% block body %} {% endblock %}
         </div>
 
