@@ -49,14 +49,6 @@ def login():
             my_user = my_list.getUser(username)
             password = my_user.password
 
-        #query = ' SELECT * FROM public.user WHERE username = %s;'
-        #val = ([username])
-
-        #result = cursor.execute(query, val)
-        #result = cursor.execute(' SELECT * FROM public.user WHERE username = %s;', [username])
-            #data = cursor.fetchone()
-            #password = data['password']
-
             if bcrypt.checkpw(password_candidate.encode('utf-8'), password.encode('utf-8')):
                 session['logged_in'] = True
                 session['username'] = username
@@ -66,7 +58,6 @@ def login():
             else:
                 error = 'Invalid login'
                 return render_template('login.jinja2', error=error)
-            #con.close()
         else:
             error = 'Username not found'
             return render_template('login.jinja2', error=error)
@@ -74,15 +65,23 @@ def login():
     return render_template('login.jinja2')
 
 @app.route('/logout')
+@is_logged_in
 def logout():
     session.clear()
     flash('You are now logged out', 'success')
     return redirect(url_for('login'))
 
-@app.route('/dashboard')
+@app.route('/table')
 @is_logged_in
 def dashboard():
-    return render_template('dashboard.jinja2')
+    uzivatelia = Select.users()
+    my_list = uzivatelia.getUsersInfo()
+    my_list.reverse()
+    if len(my_list) > 0:
+        return render_template('table.jinja2', my_list=my_list)
+    else:
+        msg = 'No Data Found'
+        return render_template('table.jinja2', msg=msg)
 
 if __name__ == '__main__':
     app.secret_key='root'
