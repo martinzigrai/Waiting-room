@@ -2,7 +2,7 @@
 
 {% block body %}
   <h1>Table<br> <small> Welcome {{session.username}}</small></h1>
-    <a class="btn btn-success" href="#">Add a new data </a>
+    <a class="btn btn-success" href="/add_record">Add a new data </a>
     <hr>
     <table class="table table-striped">
         <tr>
@@ -19,8 +19,13 @@
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.username }}</td>
-                <td><a href="#" class="btn btn-default pullright">Edit</a></td>
-                <td><a href="#" class="btn btn-danger pullright">Delete</a></td>
+                <td><a href="edit_record/{{user.user_id}}" class="btn btn-default pull-right">Edit</a></td>
+                <td>
+                    <form action="{{url_for('delete_record', id = user.user_id)}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

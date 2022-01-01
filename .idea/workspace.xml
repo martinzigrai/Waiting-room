@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a870ae80-bc0f-411a-98cf-068aa2c3515b" name="Changes" comment="Základné pripojenie k databázy">
+      <change afterPath="$PROJECT_DIR$/md/_db/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/md/_db/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/md/_db/insert.py" beforeDir="false" afterPath="$PROJECT_DIR$/md/_db/insert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/md/_db/select.py" beforeDir="false" afterPath="$PROJECT_DIR$/md/_db/select.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/md/cl/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/md/cl/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.jinja2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/_navbar.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/_navbar.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/table.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/templates/table.jinja2" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,8 @@
       <workItem from="1640529525799" duration="11443000" />
       <workItem from="1640710370846" duration="10300000" />
       <workItem from="1640880869780" duration="18080000" />
-      <workItem from="1640958433324" duration="7021000" />
+      <workItem from="1640958433324" duration="11336000" />
+      <workItem from="1641051310869" duration="11326000" />
     </task>
     <task id="LOCAL-00001" summary="Základné pripojenie k databázy">
       <created>1640881184672</created>
@@ -127,6 +131,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Základné pripojenie k databázy" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bpc_bds_cakaren$bpc_bds_cakaren.coverage" NAME="bpc-bds-cakaren Coverage Results" MODIFIED="1640968034702" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/bpc_bds_cakaren$bpc_bds_cakaren.coverage" NAME="bpc-bds-cakaren Coverage Results" MODIFIED="1641067655193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
