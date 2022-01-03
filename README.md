@@ -17,7 +17,7 @@ Doinštalovanie knihovien:   -pip install Flask
                             -pip install psycopg2
 
 ## 4. krok
-Spustenie aplikácie pomocou príkazu python app.py (je potrebné nachádzať sa v danej zložke)
+Spustenie aplikácie pomocou príkazu python app.py (je potrebné nachádzať sa v danej zložke). Ak bude problém s pripojením k databáze, tak je potrebné zmeniť svoje prihlasovacie údaje a parametre v zložke connection.py
 
 ## 5. krok
 Prihlásenie sa do aplikácie alebo vytvorenie nového účtu s vlastným heslom. 
