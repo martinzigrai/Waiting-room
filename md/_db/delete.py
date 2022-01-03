@@ -7,7 +7,7 @@ class Delete:
         connection = conn.get_connection()
         my_cursor = connection.cursor()
 
-        query = 'DELETE FROM public.user WHERE user_id = %s;'
+        query = 'DELETE FROM person WHERE person_id = %s;'
         val = (id,)
         my_cursor.execute(query, val)
 

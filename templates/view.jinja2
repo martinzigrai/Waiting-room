@@ -1,0 +1,49 @@
+{% extends 'layout.jinja2' %}
+
+{% block body %}
+  <h1>Table<br> <small> Welcome {{session.username}}</small></h1>
+    <hr>
+     <table class="table table-striped">
+        <form method="post">
+            <tr>
+                <th>Sort by:</th>
+                <td>
+                    <input list="sort_by" name="sort_by">
+                    <datalist id="sort_by">
+                        <option value="name"></option>
+                        <option value="surname"></option>
+                    </datalist>
+                </td>
+                <td>
+                <td>
+                     <form action="{{url_for('view_sort')}}" method="post">
+                        <input type="hidden" name="_method" value="SORT">
+                        <input type="submit" value="SORT" class="btn btn-default">
+                    </form>
+                </td>
+                </td>
+            </tr>
+        </form>
+
+    </table>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone number</th>
+            <th>Email</th>
+            <th>Birth id number</th>
+        </tr>
+        {% for view in my_list %}
+            <tr>
+                <td>{{ view.person_id }}</td>
+                <td>{{ view.name }}</td>
+                <td>{{ view.surname }}</td>
+                <td>{{ view.phone_num }}</td>
+                <td>{{ view.mail }}</td>
+                <td>{{ view.birth_id_num }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -4,14 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 
-from md.cl.forms import RegisterForm
-from md.cl.forms import RecordForm
+from md.cl.forms import RegisterForm, RecordForm, InjectionForm
 from md._db.insert import Insert
 from md._db.select import Select
 from md._db.update import Update
 from md._db.delete import Delete
 from md.cl.verify import *
 from md.cl.user import *
+from md.cl.view import *
 
 
 app = Flask(__name__)
@@ -31,7 +31,7 @@ def register():
 
         hashed = bcrypt.hashpw((form.password.data).encode('utf-8'), bcrypt.gensalt())
 
-        new_user = User(None, form.name.data, form.email.data, form.username.data, hashed.decode(encoding='utf-8'))
+        new_user = User(None, form.name.data, form.surname.data, form.username.data, hashed.decode(encoding='utf-8'))
 
         Insert.user(new_user)
 
@@ -79,7 +79,7 @@ def logout():
 def add_record():
     form = RecordForm(request.form)
     if request.method == 'POST' and form.validate():
-        new_user = User(None, form.name.data, form.email.data, form.username.data, None)
+        new_user = User(None, form.name.data, form.surname.data, form.username.data, None)
 
         Insert.user(new_user)
 
@@ -97,15 +97,15 @@ def edit_record(id):
     form = RecordForm(request.form)
 
     form.name.data = record.name
-    form.email.data = record.email
+    form.surname.data = record.surname
     form.username.data = record.username
 
     if request.method == 'POST' and form.validate():
         name = request.form['name']
-        email = request.form['email']
+        surname = request.form['surname']
         username = request.form['username']
 
-        new_user = User(None, name, email, username, None)
+        new_user = User(None, name, surname, username, None)
 
         app.logger.info(username)
         Update.record_update(new_user, id)
@@ -138,6 +138,44 @@ def table():
     else:
         msg = 'No Data Found'
         return render_template('table.jinja2', msg=msg)
+
+@app.route('/view', methods=['GET'])
+@is_logged_in
+def view():
+    views = Select.views()
+    my_list = views.getViewsInfo()
+    my_list.reverse()
+    if len(my_list) > 0:
+        return render_template('view.jinja2', my_list=my_list)
+    else:
+        msg = 'No Data Found'
+        return render_template('view.jinja2', msg=msg)
+
+@app.route('/view', methods=['POST'])
+@is_logged_in
+def view_sort():
+    if request.method == 'POST':
+        nieco = request.form['sort_by']
+        sorted = Select.viewsSortBy(nieco)
+        mylist = sorted.getViewsInfo()
+        return render_template('view.jinja2', mylist=mylist)
+
+@app.route('/injection', methods=['GET', 'POST'])
+@is_logged_in
+def injection():
+    form = InjectionForm(request.form)
+    data = Select.inj()
+
+    if request.method == 'POST' and form.validate():
+
+        Insert.inj(form.injection.data)
+
+        flash('Injection test successful', 'success')
+
+        return redirect(url_for('injection'))
+
+    return render_template('injection.jinja2', form=form, data=data, len=len(data))
+
 
 if __name__ == '__main__':
     #aplikaciu spustime pomocou prikazu python app.py

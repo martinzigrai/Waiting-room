@@ -8,8 +8,8 @@ class Connection:
 
     def get_connection(self):
         self.dbConnection = psycopg2.connect(
-            database="test",
-            user="postgres",
+            database="final_project", #treba nahradit vlastnymi parametrami
+            user="spravca",
             password="root",
             host="localhost",
             port="5432"

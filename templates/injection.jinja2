@@ -1,0 +1,12 @@
+{% extends 'layout.jinja2' %}
+
+{% block body %}
+  <h1>Injection test</h1>
+  {% from "includes/_formhelpers.jinja2" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{render_field(form.injection, class_="form-control")}}
+    </div>
+    <p><input class="btn btn-primary" type="submit" value="Submit">
+  </form>
+{% endblock %}

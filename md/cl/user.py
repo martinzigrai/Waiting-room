@@ -1,16 +1,16 @@
 class User:
-    def __init__(self, user_id, name, email, username, password):
-        self.user_id = user_id
+    def __init__(self, person_id, name, surname, username, password):
+        self.person_id = person_id
         self.name = name
-        self.email = email
+        self.surname = surname
         self.username = username
         self.password = password
 
     def getUserInfo(self):
         user = {
-            "user_id": self.user_id,
+            "person_id": self.person_id,
             "name": self.name,
-            "email": self.email,
+            "surname": self.surname,
             "username": self.username,
             "password": self.password
         }
@@ -41,9 +41,9 @@ class List_of_users:
         users = list()
         for i in range(len(self.main_list)):
             user = {
-                "user_id": self.main_list[i].user_id,
+                "person_id": self.main_list[i].person_id,
                 "name": self.main_list[i].name,
-                "email": self.main_list[i].email,
+                "surname": self.main_list[i].surname,
                 "username": self.main_list[i].username,
                 "password": self.main_list[i].password
             }
