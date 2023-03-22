@@ -3,7 +3,7 @@
 3. projekt predmetu Bezpečnosť databázových systémov
 
 ## 1. krok
-V prvom kroku je nutné stiahnuť si projekt z gitlabu.
+V prvom kroku je nutné stiahnuť si projekt z githubu.
 
 ## 2. krok
 V tomto kroku treba vytvoriť a inicializovať databázu, príkazy potrebné k tomuto kroku nájdete v zložke POSTGRESQL.
