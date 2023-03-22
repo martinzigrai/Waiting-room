@@ -10,7 +10,7 @@ V tomto kroku treba vytvoriť a inicializovať databázu, príkazy potrebné k t
 Príkazy sa nachádzajú v súboroch a treba ich kopírovať v nasledujúcom poradí: create.sql, insert.sql, roles.sql, view.sql a injection.sql  
 
 ## 3. krok
-Doinštalovanie knihovien:   -pip install Flask
+Doinštalovanie knižníc:     -pip install Flask
                             -pip install bcrypt
                             -pip install Flask-WTF
                             -pip install Flask-SQLAlchemy
